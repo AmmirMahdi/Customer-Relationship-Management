@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Account',
     'Lead',
     'Opportunity',
+    'Contact',
 ]
 
 MIDDLEWARE = [
