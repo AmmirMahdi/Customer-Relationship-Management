@@ -1,15 +1,6 @@
 from django.db import models
 from django.contrib.auth.models  import User 
-
-
-
-INDUSTRY_CHOICES = [
-    ('fianace','Fianace'),
-    ('health care', 'Health Care'),
-    ('insurance', 'Insurance'),
-    ('manufacturing', 'Manufacturing'),
-    ('publishing', 'Publishing')
-]
+from Account.models import Account
 
 
 LEAD_STATUS = (
@@ -25,23 +16,23 @@ LEAD_SOURCE = (
     ('email', 'Email'),
     ('existence', 'Existence'),
     ('partner', 'Partner'),
-    ('public', 'Public')
+    ('public', 'Public'),
     ('compaign','Compaign')
 )
 
 class Lead(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField() 
-    phone = models.CharField(blank=True)
-    account = ForeignKey(Account, on_delete=mpdels.CASCADE)
+    phone = models.CharField(max_length=200,blank=True)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
     status = models.CharField(max_length=50, choices=LEAD_STATUS)
-    source = models.CharField(max_length=50, choices=LEAD_CHOICES)
+    source = models.CharField(max_length=50, choices=LEAD_SOURCE)
     address = models.CharField(max_length=50, blank=True)
     website = models.URLField()
     description = models.TextField() 
-    assigned_to = models.ManyToManyField(User)
-    created_to  = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_on = models.DateTimeField(auto_now=True, auto_now_add=True)
+    assigned_to = models.ManyToManyField(User,max_length=100)
+    created_to  = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Created')
+    created_on = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     enqueryType = models.CharField(max_length=50)
 
