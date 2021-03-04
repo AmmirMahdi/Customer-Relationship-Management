@@ -23,6 +23,7 @@ LEAD_SOURCE = (
 
 class Lead(models.Model):
     name = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images/')
     email = models.EmailField() 
     phone = models.CharField(max_length=200,blank=True)
     account = models.ForeignKey(Account, on_delete=models.CASCADE)

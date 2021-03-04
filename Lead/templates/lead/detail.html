@@ -1,10 +1,36 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+
 
 {% block title %} Lead {% endblock %}
 
 {% block content %} 
 
-    <h1> {{lead.name }}</h1>
-    <h1> {{lead.email }}</h1>
 
+    <div class="container">
+         <h1 class="mt-2 pt-4 h1">Laed information </h1>
+         <hr>
+
+    <div class="card mb-3">
+        <img class="card-img-top" src="{{ lead.image.url }}"  alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Lead Information</h5>
+          <p class="card-text">Name          : {{lead.name}}</p>
+          <p class="card-text">Email          : {{lead.email}}</p>
+
+          
+          <p class="card-text">Status        : {{lead.status}}</p>
+          <p class="card-text">Source        : {{lead.source}}</p>
+          <p class="card-text">Description  : {{lead.description}}</p>
+          <p class="card-text">website : <a href="">{{lead.website}}</a></p>
+
+
+          <p class="card-text"><small class="text-muted">Address : {{ lead.address }}</small></p>
+        </div>
+      </div>
+ 
+    <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam temporibus voluptas aliquid quisquam a, sapiente explicabo consequuntur ipsa debitis reprehenderit cum perferendis repudiandae sequi magnam fuga tenetur esse fugiat. Odit, error a. Perspiciatis incidunt similique cumque illo dignissimos aspernatur officia error accusantium. Delectus dolor eveniet qui ipsam minima reiciendis pariatur.</p> -->
+</div>
 {% endblock %}

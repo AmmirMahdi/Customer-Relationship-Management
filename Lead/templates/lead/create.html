@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+
 {% block title %} Create Lead {% endblock %}
 
 {% block content %}
@@ -6,11 +9,12 @@
     <div class="container">
         <h1> Create Lead </h1>
         
-        <form class="form-group" method="POST">
+        <form class="uniForm" method="POST">
             <div class="">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <p><input type="submit" value="Submit"class="btn btn-success"></p>  
+                {% bootstrap_form form %}
+
+                    <p><input type="submit" value="Submit"class="btn btn-success"></p>  
             </div>
         </form>
     
