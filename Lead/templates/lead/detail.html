@@ -11,7 +11,12 @@
 
     <div class="container">
          <h1 class="mt-2 pt-4 h1">Laed information </h1>
+                  <a href="{% url 'lead:update' lead.pk %}"><input type="submit" value="Edit" class="btn btn-warning text-white" /></a>
+                  <a href="{% url 'lead:delete' lead.pk %}"><input type="submit" value="Delete" class="btn btn-danger" /></a>
+
          <hr>
+
+
 
     <div class="card mb-3">
         <img class="card-img-top" src="{{ lead.image.url }}"  alt="Card image cap">

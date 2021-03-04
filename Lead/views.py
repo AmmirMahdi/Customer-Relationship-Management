@@ -8,6 +8,14 @@ from django.views.generic import (
 
 from django.urls import reverse_lazy
 
+
+from .serializers import LeadSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response 
+from rest_framework.permissions import IsAuthenticated   
+from rest_framework import viewsets
+
+
 from Lead.models import Lead
 
 
@@ -35,3 +43,11 @@ class LeadDeleteView(DeleteView):
     model = Lead 
     template_name = 'lead/delete.html'
     success_url = reverse_lazy('lead:list')
+
+
+
+
+
+class ModelViewSet(viewsets.ModelViewSet):
+    queryset         = Lead.objects.all()
+    serializer_class = LeadSerializer 

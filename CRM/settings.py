@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     # crispy forms
     'crispy_forms',
     "bootstrap4",
+
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +136,13 @@ STATICFILES_DIRS = [
 
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
+
+# rest framework settings 
+REST_FRAMEWORK = {
+   'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework.authentication.TokenAuthentication',
+   ),
+   'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAdminUser', 
+   ),
+}
