@@ -19,4 +19,14 @@ class Account(models.Model):
     assigned_to = models.ManyToManyField(User, related_name='assigner')
     created_on  = models.DateTimeField(auto_now_add=False)
     is_active = models.BooleanField(default=True)
+    
+    # def get_absolute_url(self):
+    #     return reverse("", kwargs={"pk": self.pk})
+    
 
+
+    def __str__(self):
+        return self.name
+
+
+   

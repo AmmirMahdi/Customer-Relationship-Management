@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models  import User 
 from Account.models import Account
+from django.urls import reverse
 
 
 LEAD_STATUS = (
@@ -36,7 +37,11 @@ class Lead(models.Model):
     is_active = models.BooleanField(default=True)
     enqueryType = models.CharField(max_length=50)
 
+    def get_absolute_url(self):
+        return reverse("lead:detail", kwargs={"pk": self.pk})
+    
+
 
     def __str__(self):
-        return self.name, self.email
+        return self.name
     

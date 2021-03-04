@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Lead List {% endblock %}
+
+{% block content %}
+
+{% for lead in leads %}
+
+    <div class="container">
+
+        <h1><a href="{% url 'lead:detail' lead.pk %}"> {{lead.name }} </a></h1>
+    </div>
+{% endfor %}
+
+{% endblock %}

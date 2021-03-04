@@ -14,3 +14,6 @@ class Contact(models.Model):
     createdBy = models.ForeignKey(User, on_delete=models.CASCADE,related_name='contact_created_by',)
     createdOn = models.DateTimeField("Created on", auto_now_add=True)
     isActive = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.first_name + self.last_name
