@@ -3,6 +3,8 @@ from Account.models import Account
 from django.contrib.auth.models import User 
 from Contact.models import Contact
 
+from django.urls import reverse
+
 
 STAGE_CHOICES = (
     ('QUALIFICATION', 'QUALIFICATION'),
@@ -28,3 +30,10 @@ class Opportinuty(models.Model):
     description  = models.TextField()
     created_by   = models.ForeignKey(User, on_delete=models.CASCADE,related_name='created_by_opportinuty',)
     is_active    = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        return reverse("oop:detail", kwargs={"pk": self.pk})
+
+    def __str__(self):
+        return self.name 
+    

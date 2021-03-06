@@ -21,15 +21,18 @@ from django.conf import settings
 
 from rest_framework import routers
 from Lead.views import ModelViewSet
+from Opportunity.views import ModelViewSetOPP
 
 router = routers.DefaultRouter()
 router.register('leads',ModelViewSet)
+router.register('opps', ModelViewSetOPP)
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('leads/',include('Lead.urls', namespace='lead')),
+    path('opp/',include('Opportunity.urls', namespace='opp')),
     path('api/',include(router.urls))
 
 

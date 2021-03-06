@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+
+
+{% block title %} Lead {% endblock %}
+
+{% block content %} 
+
+
+    <div class="container">
+         <h1 class="mt-2 pt-4 h1">Contacts Information </h1>
+                  <a href="{% url 'opp:update' oop.pk %}"><input type="submit" value="Edit" class="btn btn-warning text-white" /></a>
+                  <a href="{% url 'opp:delete' oop.pk %}"><input type="submit" value="Delete" class="btn btn-danger" /></a>
+
+         <hr>
+
+
+
+    <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Lead Information</h5>
+          <p class="card-text">Name          : {{ oop.name}}</p>
+          <p class="card-text">Account          : {{oop.account}}</p>
+
+          
+          <p class="card-text">Stage        : {{oop.stage}}</p>
+          <p class="card-text">Aamount        : {{oop.amount}}</p>
+          <p class="card-text">Description  : {{oop.description}}</p>
+          <p class="card-text">Active :  {{oop.active }}</p>
+
+
+        </div>
+      </div>
+ 
+    <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam temporibus voluptas aliquid quisquam a, sapiente explicabo consequuntur ipsa debitis reprehenderit cum perferendis repudiandae sequi magnam fuga tenetur esse fugiat. Odit, error a. Perspiciatis incidunt similique cumque illo dignissimos aspernatur officia error accusantium. Delectus dolor eveniet qui ipsam minima reiciendis pariatur.</p> -->
+</div>
+{% endblock %}
