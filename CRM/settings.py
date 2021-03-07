@@ -146,3 +146,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAdminUser', 
    ),
 }
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'lead:list'
+
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'lead:list'

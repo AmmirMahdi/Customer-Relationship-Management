@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Detail {% endblock title %}
+
+{% block content %} 
+
+
+
+    <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Contact Information</h5>
+          <p class="card-text">Name          : {{contact.first_name}}</p>
+          <p class="card-text">Email          : {{ contact.last_name }}</p>
+
+          
+          <p class="card-text">Email        : {{contact.email}}</p>
+          <p class="card-text">Account        : {{contact.account}}</p>
+          <p class="card-text">Description  : {{lead.description}}</p>
+
+
+        </div>
+      </div>
+ 
+    <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam temporibus voluptas aliquid quisquam a, sapiente explicabo consequuntur ipsa debitis reprehenderit cum perferendis repudiandae sequi magnam fuga tenetur esse fugiat. Odit, error a. Perspiciatis incidunt similique cumque illo dignissimos aspernatur officia error accusantium. Delectus dolor eveniet qui ipsam minima reiciendis pariatur.</p> -->
+</div>
+{% endblock %}

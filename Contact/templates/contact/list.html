@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Contact {% endblock title %}
+
+
+{% block content %}
+<div class="container">
+
+<h1 class="h1 mt-3 pt-3">Leads List </h1>
+<p class="small p">Note : This is our Leads List</p>
+
+<small><hr></small>
+
+
+{% for c in contacts %}
+
+<table class="table table-bordered text-center">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Status</th>
+    <th scope="col">Active</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <th scope="row">{{c.id}}</th>
+    <td><a href="{% url 'contact:detail' c.pk %}">{{c.first_name}} </a></td>
+    <td>{{c.last_name}}</td>
+    <td>{{ c.isActive }}</td>
+  </tr> 
+</tbody>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

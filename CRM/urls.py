@@ -23,6 +23,10 @@ from rest_framework import routers
 from Lead.views import ModelViewSet
 from Opportunity.views import ModelViewSetOPP
 
+from django.contrib.auth.views import LoginView,LogoutView
+
+
+
 router = routers.DefaultRouter()
 router.register('leads',ModelViewSet)
 router.register('opps', ModelViewSetOPP)
@@ -33,6 +37,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('leads/',include('Lead.urls', namespace='lead')),
     path('opp/',include('Opportunity.urls', namespace='opp')),
+    path('contact/', include('Contact.urls', namespace='contact')),
+
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/',LogoutView.as_view(), name='logout'),
+
+
     path('api/',include(router.urls))
 
 

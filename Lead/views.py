@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import (
                                 CreateView,
                                 UpdateView,
                                 DeleteView,
                                 DetailView,
-                                ListView)
+                                ListView,
+                                View)
+
 
 from django.urls import reverse_lazy
 
@@ -15,8 +17,13 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated   
 from rest_framework import viewsets
 
+# from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from .forms import Register
 
 from Lead.models import Lead
+
+
 
 
 class LeadListView(ListView):
@@ -46,6 +53,18 @@ class LeadDeleteView(DeleteView):
 
 
 
+
+
+def register(request):
+    if request.method == 'POST':
+        form = Register(request.POST) 
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Welcome {username}')
+            return redirect('lead:list')
+    else:
+        form = Register()
+    return render(request, 'users/register.html', {'form':form})
 
 
 class ModelViewSet(viewsets.ModelViewSet):

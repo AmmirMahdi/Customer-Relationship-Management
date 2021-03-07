@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import (
                                 CreateView,
                                 UpdateView,
@@ -12,8 +12,9 @@ from .models import Opportinuty
 from .serializers import OpportinutySerializer
 from rest_framework.response import Response 
 from rest_framework import viewsets
+#################################################################
 
-
+################################################################
 from Lead.models import Lead
 
 
@@ -44,8 +45,7 @@ class OOPDeleteView(DeleteView):
 
 
 
-
-
 class ModelViewSetOPP(viewsets.ModelViewSet):
     queryset         = Opportinuty.objects.all()
     serializer_class = OpportinutySerializer 
+

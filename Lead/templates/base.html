@@ -22,7 +22,13 @@
                 <a class="nav-link" href="#">About </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="{% url 'contact:list' %}">Contact</a>
+              </li>
+
+
+            {% if user.is_authenticated %}          
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'oop:list' %}">Opportinuty</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link " href="{% url 'lead:create' %}">Create Lead </a>
@@ -30,7 +36,24 @@
               <li class="nav-item active">
                 <a class="nav-link " href="{% url 'opp:create' %}">Create Opportinuty </a>
               </li>
+
+              <li class="nav-item active">
+                <a class="nav-link " href="{% url 'contact:create' %}">Create Contact </a>
+              </li>
+              
+              
+            <li class="nav-item active">
+                <a class="nav-link " href="{% url 'logout' %}">Logout </a>
+              </li>
             </ul>
+          {% else %}
+            <li class="nav-item active">
+                <a class="nav-link " href="{% url 'lead:register' %}">Signup</a>
+              </li>
+               <li class="nav-item active">
+                <a class="nav-link " href="{% url 'login' %}">Login</a>
+              </li>
+{% endif %}
           </div>
         </nav>
     </div>

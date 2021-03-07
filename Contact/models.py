@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 from django.contrib.auth.models import User
 from Account.models import Account
 
@@ -17,3 +17,7 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.first_name + self.last_name
+
+    def get_absolute_url(self):
+        return reverse("contact:detail", kwargs={"pk": self.pk})
+    
