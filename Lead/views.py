@@ -5,6 +5,7 @@ from django.views.generic import (
                                 DeleteView,
                                 DetailView,
                                 ListView,
+                                TemplateView,
                                 View)
 
 
@@ -23,6 +24,9 @@ from .forms import Register
 
 from Lead.models import Lead
 
+
+class HomePageView(TemplateView):
+    template_name = 'lead/home.html'
 
 
 

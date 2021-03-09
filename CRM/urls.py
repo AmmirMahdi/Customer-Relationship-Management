@@ -24,8 +24,7 @@ from Lead.views import ModelViewSet
 from Opportunity.views import ModelViewSetOPP
 
 from django.contrib.auth.views import LoginView,LogoutView
-
-
+from Lead.views import HomePageView
 
 router = routers.DefaultRouter()
 router.register('leads',ModelViewSet)
@@ -34,7 +33,10 @@ router.register('opps', ModelViewSetOPP)
 
 
 urlpatterns = [
+    path('',HomePageView.as_view(), name='home'),
     path('admin/', admin.site.urls),
+
+
     path('leads/',include('Lead.urls', namespace='lead')),
     path('opp/',include('Opportunity.urls', namespace='opp')),
     path('contact/', include('Contact.urls', namespace='contact')),
